@@ -10,10 +10,10 @@ Public Class LoginForm
 
         If result IsNot Nothing Then
             Hide()
-            '
-            ' See ApplicationEvents.vb
-            '
-            My.Application.UserRole = DirectCast([Enum].Parse(GetType(UserRoles), result.UserRole), UserRoles)
+
+            My.Application.UserRole = DirectCast([Enum].Parse(GetType(UserRoles),
+                                                              result.UserRole), UserRoles)
+
             If My.Application.UserRole = UserRoles.Admin Then
                 Dim f As New AdminForm()
                 f.ShowDialog()

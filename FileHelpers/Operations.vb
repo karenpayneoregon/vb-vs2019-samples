@@ -96,7 +96,9 @@ Public Class Operations
 
                                For Each dir As DirectoryInfo In directoryInfo.EnumerateDirectories()
                                    Dim folder = dir
-
+                                   If folder.Attributes.ToString().Contains("Hidden") OrElse folder.Attributes.ToString().Contains("System") Then
+                                       RaiseEvent OnTraverseExcludeFolderEvent($"* {folder.FullName}")
+                                   End If
                                    If Not Cancelled Then
 
                                        Await Task.Delay(1)
