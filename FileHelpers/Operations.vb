@@ -134,6 +134,8 @@ Public Class Operations
         Catch ex As Exception
             '
             ' Only raise exceptions, not cancellation request
+            ' In OperationsListView class the UnauthorizedAccessException
+            ' and general exceptions are ignored.
             '
             If TypeOf ex Is OperationCanceledException Then
 
@@ -153,71 +155,6 @@ Public Class Operations
 
     End Function
 
-    ''' <summary>
-    ''' Recursive folders with cancellation
-    ''' </summary>
-    ''' <param name="directoryInfo">Directory information for folder</param>
-    ''' <param name="ct">Token to cancel operation</param>
-    ''' <returns>Task</returns>
-    Public Shared Async Function RecursiveFolders(directoryInfo As DirectoryInfo, ct As CancellationToken) As Task
-
-        If Not directoryInfo.Exists Then
-            RaiseEvent OnTraverseEvent("Nothing to process")
-            Return
-        End If
-
-        Try
-            Await Task.Run(Async Function()
-
-                               For Each dir As DirectoryInfo In directoryInfo.EnumerateDirectories()
-                                   Dim folder = dir
-
-                                   If (folder.Attributes And FileAttributes.Hidden) = FileAttributes.Hidden OrElse
-                                      (folder.Attributes And FileAttributes.System) = FileAttributes.System OrElse
-                                      (folder.Attributes And FileAttributes.ReparsePoint) = FileAttributes.ReparsePoint Then
-                                       RaiseEvent OnTraverseExcludeFolderEvent($"* {folder.FullName}")
-                                       Continue For
-                                   End If
-
-
-                                   If Not Cancelled Then
-
-                                       Await Task.Delay(1)
-                                       Await RecursiveFolders(folder, ct)
-
-                                   Else
-                                       Return
-                                   End If
-
-                                   If ct.IsCancellationRequested Then
-                                       ct.ThrowIfCancellationRequested()
-                                   End If
-
-                               Next
-
-                           End Function)
-
-        Catch ex As Exception
-            '
-            ' Only raise exceptions, not cancellation request
-            '
-            If TypeOf ex Is OperationCanceledException Then
-
-                Cancelled = True
-
-            ElseIf TypeOf ex Is UnauthorizedAccessException Then
-
-                RaiseEvent UnauthorizedAccessExceptionEvent($"Access denied '{ex.Message.StringBetweenQuotes()}'")
-
-            Else
-
-                RaiseEvent OnExceptionEvent(ex)
-
-            End If
-        End Try
-
-
-    End Function
     ''' <summary>
     ''' Example that will run freely and the app will be unresponsive which
     ''' is how many developers approach reading folders and only try with a smaller
@@ -233,7 +170,7 @@ Public Class Operations
             If (File.GetAttributes(path) And FileAttributes.ReparsePoint) <> FileAttributes.ReparsePoint Then
 
                 For Each folder As String In Directory.GetDirectories(path)
-                    Console.WriteLine($"{New String(" "c, indentLevel)}{IO.Path.GetFileName(folder)}")
+                    Debug.WriteLine($"{New String(" "c, indentLevel)}{IO.Path.GetFileName(folder)}")
                     RecursiveFolders(folder, indentLevel + 2)
                 Next
 
@@ -243,16 +180,8 @@ Public Class Operations
             '
             ' Show folder which failed by deny access
             '
-            Console.WriteLine($"{unauthorized.Message}")
+            Debug.WriteLine($"{unauthorized.Message}")
         End Try
     End Sub
-    Public Shared Function CanReadFolder(path As String) As Boolean
-        Dim Result As Boolean = False
-        Debug.WriteLine(path)
-        Dim ac = (New FileInfo(path)).GetAccessControl()
-
-        Return Result
-    End Function
-
 
 End Class

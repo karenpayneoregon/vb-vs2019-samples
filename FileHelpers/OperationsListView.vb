@@ -3,16 +3,6 @@ Imports System.Threading
 
 Public Class OperationsListView
 
-
-    Public Delegate Sub OnException(exception As Exception)
-    ''' <summary>
-    ''' Callback for subscribers to know about a problem
-    ''' </summary>
-    Public Shared Event OnExceptionEvent As OnException
-
-    Public Delegate Sub OnUnauthorizedAccessException(message As String)
-    Public Shared Event UnauthorizedAccessExceptionEvent As OnUnauthorizedAccessException
-
     Public Delegate Sub OnTraverseFolder(information As DirectoryItem)
     ''' <summary>
     ''' Callback for when a folder is being processed
@@ -29,13 +19,22 @@ Public Class OperationsListView
             Return
         End If
 
-        Dim di As New DirectoryItem With {
-            .Name = directoryInfo.Name,
-            .Location = Path.GetDirectoryName(directoryInfo.Name),
-            .Modified = directoryInfo.LastAccessTime
-        }
+        '
+        ' Let's say you are traversing folders with Git repositories, we don't
+        ' want to include their folders.
+        '
+        If Not directoryInfo.FullName.Contains(".git") Then
 
-        RaiseEvent OnTraverseEvent(di)
+            Dim di As New DirectoryItem With {
+                    .Location = Path.GetDirectoryName(directoryInfo.FullName),
+                    .Name = directoryInfo.Name,
+                    .Modified = directoryInfo.CreationTime
+                    }
+
+            RaiseEvent OnTraverseEvent(di)
+
+        End If
+
         Await Task.Delay(1)
 
         Dim folder As DirectoryInfo
@@ -66,19 +65,14 @@ Public Class OperationsListView
 
         Catch ex As Exception
             '
-            ' Only raise exceptions, not cancellation request
+            ' Operations.RecursiveFolders showed how to recognize
+            ' folders that access has been denied, here these exceptions
+            ' are ignored. A developer can integrate those exceptions here
+            ' if so desired.
             '
             If TypeOf ex Is OperationCanceledException Then
 
                 Cancelled = True
-
-            ElseIf TypeOf ex Is UnauthorizedAccessException Then
-
-                RaiseEvent UnauthorizedAccessExceptionEvent($"Access denied '{ex.Message.StringBetweenQuotes()}'")
-
-            Else
-
-                RaiseEvent OnExceptionEvent(ex)
 
             End If
         End Try

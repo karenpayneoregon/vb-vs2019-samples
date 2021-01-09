@@ -4,7 +4,7 @@
     Public Property Modified() As DateTime
     Public ReadOnly Property ItemArray() As String()
         Get
-            Return New String() {Name, Location, Modified.ToShortDateString()}
+            Return New String() {Location, Name, Modified.ToShortDateString()}
         End Get
     End Property
     Public Overrides Function ToString() As String
