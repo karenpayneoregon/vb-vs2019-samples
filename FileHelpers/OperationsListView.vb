@@ -23,7 +23,7 @@ Public Class OperationsListView
         ' Let's say you are traversing folders with Git repositories, we don't
         ' want to include their folders.
         '
-        If Not directoryInfo.FullName.Contains(".git") Then
+        If Not directoryInfo.FullName.ContainsAny(".git", "\obj") Then
 
             Dim di As New DirectoryItem With {
                     .Location = Path.GetDirectoryName(directoryInfo.FullName),

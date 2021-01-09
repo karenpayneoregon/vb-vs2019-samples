@@ -24,37 +24,44 @@ Partial Class ListViewForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListViewForm))
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.FoldersListView = New System.Windows.Forms.ListView()
         Me.NameHeader = New System.Windows.Forms.ColumnHeader()
         Me.LocationHeader = New System.Windows.Forms.ColumnHeader()
         Me.ModifiedHeader = New System.Windows.Forms.ColumnHeader()
+        Me.OpenFolderContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectFolderButton = New System.Windows.Forms.Button()
         Me.FolderTextBox = New System.Windows.Forms.TextBox()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.FolderSelectionContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CancelButton = New System.Windows.Forms.Button()
         Me.TraverseButton = New System.Windows.Forms.Button()
         Me.ProcessingLabel = New System.Windows.Forms.Label()
         Me.ProcessedTitleLabel = New System.Windows.Forms.Label()
-        Me.ContextMenuStrip1.SuspendLayout()
+        Me.OpenFolderContextMenuStrip.SuspendLayout()
+        Me.FolderSelectionContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ListView1
+        'FoldersListView
         '
-        Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.FoldersListView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NameHeader, Me.LocationHeader, Me.ModifiedHeader})
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(12, 71)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(776, 348)
-        Me.ListView1.TabIndex = 8
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
+        Me.FoldersListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NameHeader, Me.LocationHeader, Me.ModifiedHeader})
+        Me.FoldersListView.ContextMenuStrip = Me.OpenFolderContextMenuStrip
+        Me.FoldersListView.FullRowSelect = True
+        Me.FoldersListView.HideSelection = False
+        Me.FoldersListView.Location = New System.Drawing.Point(12, 71)
+        Me.FoldersListView.MultiSelect = False
+        Me.FoldersListView.Name = "FoldersListView"
+        Me.FoldersListView.Size = New System.Drawing.Size(776, 348)
+        Me.FoldersListView.TabIndex = 8
+        Me.FoldersListView.UseCompatibleStateImageBehavior = False
+        Me.FoldersListView.View = System.Windows.Forms.View.Details
         '
         'NameHeader
         '
@@ -74,6 +81,19 @@ Partial Class ListViewForm
         Me.ModifiedHeader.Text = "Modified"
         Me.ModifiedHeader.Width = 100
         '
+        'OpenFolderContextMenuStrip
+        '
+        Me.OpenFolderContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6})
+        Me.OpenFolderContextMenuStrip.Name = "OpenFolderContextMenuStrip"
+        Me.OpenFolderContextMenuStrip.Size = New System.Drawing.Size(184, 26)
+        Me.OpenFolderContextMenuStrip.Text = "Open folder"
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(183, 22)
+        Me.ToolStripMenuItem6.Text = "Open selected folder"
+        '
         'SelectFolderButton
         '
         Me.SelectFolderButton.Image = CType(resources.GetObject("SelectFolderButton.Image"), System.Drawing.Image)
@@ -85,18 +105,23 @@ Partial Class ListViewForm
         '
         'FolderTextBox
         '
-        Me.FolderTextBox.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.FolderTextBox.ContextMenuStrip = Me.FolderSelectionContextMenuStrip
         Me.FolderTextBox.Location = New System.Drawing.Point(12, 37)
         Me.FolderTextBox.Name = "FolderTextBox"
         Me.FolderTextBox.Size = New System.Drawing.Size(518, 23)
         Me.FolderTextBox.TabIndex = 11
-        Me.FolderTextBox.Text = "C:\Windows\System32"
         '
-        'ContextMenuStrip1
+        'FolderSelectionContextMenuStrip
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(288, 48)
+        Me.FolderSelectionContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem4, Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5})
+        Me.FolderSelectionContextMenuStrip.Name = "ContextMenuStrip1"
+        Me.FolderSelectionContextMenuStrip.Size = New System.Drawing.Size(288, 114)
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem4.Text = "C:\Program Files (x86)"
         '
         'ToolStripMenuItem1
         '
@@ -109,6 +134,18 @@ Partial Class ListViewForm
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(287, 22)
         Me.ToolStripMenuItem2.Text = "C:\Windows\System32"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem3.Text = "Documents"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem5.Text = "C:\Windows\Microsoft.NET"
         '
         'CancelButton
         '
@@ -130,6 +167,7 @@ Partial Class ListViewForm
         '
         'ProcessingLabel
         '
+        Me.ProcessingLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProcessingLabel.AutoSize = True
         Me.ProcessingLabel.Location = New System.Drawing.Point(80, 426)
         Me.ProcessingLabel.Name = "ProcessingLabel"
@@ -139,6 +177,7 @@ Partial Class ListViewForm
         '
         'ProcessedTitleLabel
         '
+        Me.ProcessedTitleLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProcessedTitleLabel.AutoSize = True
         Me.ProcessedTitleLabel.Location = New System.Drawing.Point(12, 426)
         Me.ProcessedTitleLabel.Name = "ProcessedTitleLabel"
@@ -157,17 +196,18 @@ Partial Class ListViewForm
         Me.Controls.Add(Me.FolderTextBox)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.TraverseButton)
-        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.FoldersListView)
         Me.Name = "ListViewForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ListView Form"
-        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.OpenFolderContextMenuStrip.ResumeLayout(False)
+        Me.FolderSelectionContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents ListView1 As ListView
+    Friend WithEvents FoldersListView As ListView
     Friend WithEvents LocationColumnHeader As ColumnHeader
     Friend WithEvents LocationHeader As ColumnHeader
     Friend WithEvents ModifiedHeader As ColumnHeader
@@ -175,11 +215,16 @@ Partial Class ListViewForm
     Friend WithEvents FolderTextBox As TextBox
     Friend WithEvents CancelButton As Button
     Friend WithEvents TraverseButton As Button
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents FolderSelectionContextMenuStrip As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents ProcessingLabel As Label
     Friend WithEvents ProcessedTitleLabel As Label
     Friend WithEvents NameColumnHeader As ColumnHeader
     Friend WithEvents NameHeader As ColumnHeader
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents OpenFolderContextMenuStrip As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
 End Class
