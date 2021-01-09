@@ -13,6 +13,9 @@ Public Class Operations
     ''' </summary>
     Public Shared Event OnExceptionEvent As OnException
 
+    Public Delegate Sub OnUnauthorizedAccessException(message As String)
+    Public Shared Event UnauthorizedAccessExceptionEvent As OnUnauthorizedAccessException
+
     Public Delegate Sub OnTraverseFolder(status As String)
     ''' <summary>
     ''' Callback for when a folder is being processed
@@ -76,7 +79,7 @@ Public Class Operations
     ''' </summary>
     ''' <param name="directoryInfo">Full path wrapped in a DirectoryInfo variable</param>
     ''' <param name="excludeFileExtensions">string array to filter what folders to exclude</param>
-    ''' <param name="ct"></param>
+    ''' <param name="ct">Token to cancel operation</param>
     Public Shared Async Function RecursiveFolders(directoryInfo As DirectoryInfo, excludeFileExtensions As String(), ct As CancellationToken) As Task
 
         If Not directoryInfo.Exists Then
@@ -87,18 +90,30 @@ Public Class Operations
         If Not excludeFileExtensions.Any(AddressOf directoryInfo.FullName.Contains) Then
             Await Task.Delay(1)
             RaiseEvent OnTraverseEvent(directoryInfo.FullName)
+
         Else
             RaiseEvent OnTraverseExcludeFolderEvent(directoryInfo.FullName)
         End If
+
+        Dim folder As DirectoryInfo
 
         Try
             Await Task.Run(Async Function()
 
                                For Each dir As DirectoryInfo In directoryInfo.EnumerateDirectories()
-                                   Dim folder = dir
-                                   If folder.Attributes.ToString().Contains("Hidden") OrElse folder.Attributes.ToString().Contains("System") Then
+
+                                   folder = dir
+
+                                   If (folder.Attributes And FileAttributes.Hidden) = FileAttributes.Hidden OrElse
+                                      (folder.Attributes And FileAttributes.System) = FileAttributes.System OrElse
+                                      (folder.Attributes And FileAttributes.ReparsePoint) = FileAttributes.ReparsePoint Then
+
                                        RaiseEvent OnTraverseExcludeFolderEvent($"* {folder.FullName}")
+
+                                       Continue For
+
                                    End If
+
                                    If Not Cancelled Then
 
                                        Await Task.Delay(1)
@@ -121,11 +136,86 @@ Public Class Operations
             ' Only raise exceptions, not cancellation request
             '
             If TypeOf ex Is OperationCanceledException Then
+
                 Cancelled = True
+
+            ElseIf TypeOf ex Is UnauthorizedAccessException Then
+
+                RaiseEvent UnauthorizedAccessExceptionEvent($"Access denied '{ex.Message.StringBetweenQuotes()}'")
+
             Else
+
                 RaiseEvent OnExceptionEvent(ex)
+
             End If
         End Try
+
+
+    End Function
+
+    ''' <summary>
+    ''' Recursive folders with cancellation
+    ''' </summary>
+    ''' <param name="directoryInfo">Directory information for folder</param>
+    ''' <param name="ct">Token to cancel operation</param>
+    ''' <returns>Task</returns>
+    Public Shared Async Function RecursiveFolders(directoryInfo As DirectoryInfo, ct As CancellationToken) As Task
+
+        If Not directoryInfo.Exists Then
+            RaiseEvent OnTraverseEvent("Nothing to process")
+            Return
+        End If
+
+        Try
+            Await Task.Run(Async Function()
+
+                               For Each dir As DirectoryInfo In directoryInfo.EnumerateDirectories()
+                                   Dim folder = dir
+
+                                   If (folder.Attributes And FileAttributes.Hidden) = FileAttributes.Hidden OrElse
+                                      (folder.Attributes And FileAttributes.System) = FileAttributes.System OrElse
+                                      (folder.Attributes And FileAttributes.ReparsePoint) = FileAttributes.ReparsePoint Then
+                                       RaiseEvent OnTraverseExcludeFolderEvent($"* {folder.FullName}")
+                                       Continue For
+                                   End If
+
+
+                                   If Not Cancelled Then
+
+                                       Await Task.Delay(1)
+                                       Await RecursiveFolders(folder, ct)
+
+                                   Else
+                                       Return
+                                   End If
+
+                                   If ct.IsCancellationRequested Then
+                                       ct.ThrowIfCancellationRequested()
+                                   End If
+
+                               Next
+
+                           End Function)
+
+        Catch ex As Exception
+            '
+            ' Only raise exceptions, not cancellation request
+            '
+            If TypeOf ex Is OperationCanceledException Then
+
+                Cancelled = True
+
+            ElseIf TypeOf ex Is UnauthorizedAccessException Then
+
+                RaiseEvent UnauthorizedAccessExceptionEvent($"Access denied '{ex.Message.StringBetweenQuotes()}'")
+
+            Else
+
+                RaiseEvent OnExceptionEvent(ex)
+
+            End If
+        End Try
+
 
     End Function
     ''' <summary>
@@ -156,5 +246,13 @@ Public Class Operations
             Console.WriteLine($"{unauthorized.Message}")
         End Try
     End Sub
+    Public Shared Function CanReadFolder(path As String) As Boolean
+        Dim Result As Boolean = False
+        Debug.WriteLine(path)
+        Dim ac = (New FileInfo(path)).GetAccessControl()
+
+        Return Result
+    End Function
+
 
 End Class

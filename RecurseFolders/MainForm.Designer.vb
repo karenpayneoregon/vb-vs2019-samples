@@ -33,6 +33,11 @@ Partial Class MainForm
         Me.SelectFolderButton = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ExceptionsListBox = New System.Windows.Forms.ListBox()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.NameHeader = New System.Windows.Forms.ColumnHeader()
+        Me.LocationHeader = New System.Windows.Forms.ColumnHeader()
+        Me.SizeHeader = New System.Windows.Forms.ColumnHeader()
+        Me.ModifiedHeader = New System.Windows.Forms.ColumnHeader()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -100,6 +105,7 @@ Partial Class MainForm
         Me.FolderTextBox.Name = "FolderTextBox"
         Me.FolderTextBox.Size = New System.Drawing.Size(518, 23)
         Me.FolderTextBox.TabIndex = 4
+        Me.FolderTextBox.Text = "C:\Windows\System32"
         '
         'SelectFolderButton
         '
@@ -129,11 +135,43 @@ Partial Class MainForm
         Me.ExceptionsListBox.Size = New System.Drawing.Size(571, 124)
         Me.ExceptionsListBox.TabIndex = 0
         '
-        'Form1
+        'ListView1
+        '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NameHeader, Me.LocationHeader, Me.SizeHeader, Me.ModifiedHeader})
+        Me.ListView1.HideSelection = False
+        Me.ListView1.Location = New System.Drawing.Point(605, 103)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(563, 274)
+        Me.ListView1.TabIndex = 7
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'NameHeader
+        '
+        Me.NameHeader.Name = "NameHeader"
+        Me.NameHeader.Text = "Name"
+        '
+        'LocationHeader
+        '
+        Me.LocationHeader.Name = "LocationHeader"
+        Me.LocationHeader.Text = "Location"
+        '
+        'SizeHeader
+        '
+        Me.SizeHeader.Name = "SizeHeader"
+        Me.SizeHeader.Text = "Size"
+        '
+        'ModifiedHeader
+        '
+        Me.ModifiedHeader.Name = "ModifiedHeader"
+        Me.ModifiedHeader.Text = "Modified"
+        '
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(608, 617)
+        Me.ClientSize = New System.Drawing.Size(1183, 617)
+        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.SelectFolderButton)
         Me.Controls.Add(Me.FolderTextBox)
@@ -142,7 +180,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.TraverseButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "Form1"
+        Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Traverse"
         Me.GroupBox1.ResumeLayout(False)
@@ -163,4 +201,9 @@ Partial Class MainForm
     Friend WithEvents SelectFolderButton As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents ExceptionsListBox As ListBox
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents NameHeader As ColumnHeader
+    Friend WithEvents LocationHeader As ColumnHeader
+    Friend WithEvents SizeHeader As ColumnHeader
+    Friend WithEvents ModifiedHeader As ColumnHeader
 End Class

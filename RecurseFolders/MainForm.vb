@@ -24,6 +24,13 @@ Public Class MainForm
                 listBox.SelectedIndex = listBox.Items.Count - 1
             End Sub)
     End Sub
+    Private Sub UnauthorizedAccessExceptionEvent(message As String)
+        ExceptionsListBox.InvokeIfRequired(
+            Sub(listBox)
+                listBox.Items.Add(message)
+                listBox.SelectedIndex = listBox.Items.Count - 1
+            End Sub)
+    End Sub
     ''' <summary>
     ''' Reports skipping a folder as it has been told to be
     ''' ignored
@@ -87,10 +94,14 @@ Public Class MainForm
         AddHandler Operations.OnTraverseEvent, AddressOf Traversing
         AddHandler Operations.OnTraverseExcludeFolderEvent, AddressOf ExcludeTraverse
         AddHandler Operations.OnExceptionEvent, AddressOf ExceptionHappened
+        AddHandler Operations.UnauthorizedAccessExceptionEvent, AddressOf UnauthorizedAccessExceptionEvent
 
         SetCueText(FolderTextBox, "Enter a path to traverse")
 
     End Sub
+
+
+
     Private SelectedPath As String = "C:\"
     Private Sub SelectFolderButton_Click(sender As Object, e As EventArgs) Handles SelectFolderButton.Click
 
