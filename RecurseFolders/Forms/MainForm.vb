@@ -91,6 +91,7 @@ Public Class MainForm
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+
         AddHandler Operations.OnTraverseEvent, AddressOf Traversing
         AddHandler Operations.OnTraverseExcludeFolderEvent, AddressOf ExcludeTraverse
         AddHandler Operations.OnExceptionEvent, AddressOf ExceptionHappened
@@ -105,7 +106,6 @@ Public Class MainForm
     Private SelectedPath As String = "C:\"
     Private Sub SelectFolderButton_Click(sender As Object, e As EventArgs) Handles SelectFolderButton.Click
 
-
         Dim dialog As New FolderBrowserDialogEx With {
                     .SelectedPath = SelectedPath,
                     .RootFolder = Environment.SpecialFolder.Desktop,
@@ -117,5 +117,6 @@ Public Class MainForm
             FolderTextBox.Text = dialog.SelectedPath
             SelectedPath = FolderTextBox.Text
         End If
+
     End Sub
 End Class
