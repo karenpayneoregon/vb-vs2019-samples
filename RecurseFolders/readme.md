@@ -1,6 +1,8 @@
 ﻿# About
 
-Asynchronous traverse folders code sample
+Asynchronous traverse folders code sample.
+
+**A work in progress**
 
 # TechNet article
 
