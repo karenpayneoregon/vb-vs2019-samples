@@ -38,10 +38,13 @@ Partial Class ListViewForm
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CancelButton = New System.Windows.Forms.Button()
         Me.TraverseButton = New System.Windows.Forms.Button()
         Me.ProcessingLabel = New System.Windows.Forms.Label()
         Me.ProcessedTitleLabel = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SearchTokenTextBox = New System.Windows.Forms.TextBox()
         Me.OpenFolderContextMenuStrip.SuspendLayout()
         Me.FolderSelectionContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -55,10 +58,10 @@ Partial Class ListViewForm
         Me.FoldersListView.ContextMenuStrip = Me.OpenFolderContextMenuStrip
         Me.FoldersListView.FullRowSelect = True
         Me.FoldersListView.HideSelection = False
-        Me.FoldersListView.Location = New System.Drawing.Point(12, 71)
+        Me.FoldersListView.Location = New System.Drawing.Point(12, 114)
         Me.FoldersListView.MultiSelect = False
         Me.FoldersListView.Name = "FoldersListView"
-        Me.FoldersListView.Size = New System.Drawing.Size(776, 348)
+        Me.FoldersListView.Size = New System.Drawing.Size(776, 365)
         Me.FoldersListView.TabIndex = 8
         Me.FoldersListView.UseCompatibleStateImageBehavior = False
         Me.FoldersListView.View = System.Windows.Forms.View.Details
@@ -113,9 +116,9 @@ Partial Class ListViewForm
         '
         'FolderSelectionContextMenuStrip
         '
-        Me.FolderSelectionContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem4, Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5})
+        Me.FolderSelectionContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem4, Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.ToolStripMenuItem7})
         Me.FolderSelectionContextMenuStrip.Name = "ContextMenuStrip1"
-        Me.FolderSelectionContextMenuStrip.Size = New System.Drawing.Size(288, 114)
+        Me.FolderSelectionContextMenuStrip.Size = New System.Drawing.Size(288, 136)
         '
         'ToolStripMenuItem4
         '
@@ -147,6 +150,12 @@ Partial Class ListViewForm
         Me.ToolStripMenuItem5.Size = New System.Drawing.Size(287, 22)
         Me.ToolStripMenuItem5.Text = "C:\Windows\Microsoft.NET"
         '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem7.Text = "C:\webprojects"
+        '
         'CancelButton
         '
         Me.CancelButton.Location = New System.Drawing.Point(105, 8)
@@ -169,7 +178,7 @@ Partial Class ListViewForm
         '
         Me.ProcessingLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProcessingLabel.AutoSize = True
-        Me.ProcessingLabel.Location = New System.Drawing.Point(80, 426)
+        Me.ProcessingLabel.Location = New System.Drawing.Point(80, 486)
         Me.ProcessingLabel.Name = "ProcessingLabel"
         Me.ProcessingLabel.Size = New System.Drawing.Size(47, 15)
         Me.ProcessingLabel.TabIndex = 13
@@ -179,17 +188,36 @@ Partial Class ListViewForm
         '
         Me.ProcessedTitleLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProcessedTitleLabel.AutoSize = True
-        Me.ProcessedTitleLabel.Location = New System.Drawing.Point(12, 426)
+        Me.ProcessedTitleLabel.Location = New System.Drawing.Point(12, 486)
         Me.ProcessedTitleLabel.Name = "ProcessedTitleLabel"
         Me.ProcessedTitleLabel.Size = New System.Drawing.Size(60, 15)
         Me.ProcessedTitleLabel.TabIndex = 14
         Me.ProcessedTitleLabel.Text = "Processed"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 77)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 15)
+        Me.Label1.TabIndex = 15
+        Me.Label1.Text = "Search for"
+        '
+        'SearchTokenTextBox
+        '
+        Me.SearchTokenTextBox.Location = New System.Drawing.Point(78, 74)
+        Me.SearchTokenTextBox.Name = "SearchTokenTextBox"
+        Me.SearchTokenTextBox.Size = New System.Drawing.Size(115, 23)
+        Me.SearchTokenTextBox.TabIndex = 16
+        Me.SearchTokenTextBox.Text = "GitHub"
+        '
         'ListViewForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(800, 510)
+        Me.Controls.Add(Me.SearchTokenTextBox)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ProcessedTitleLabel)
         Me.Controls.Add(Me.ProcessingLabel)
         Me.Controls.Add(Me.SelectFolderButton)
@@ -227,4 +255,7 @@ Partial Class ListViewForm
     Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
     Friend WithEvents OpenFolderContextMenuStrip As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
+    Friend WithEvents Label1 As Label
+    Friend WithEvents SearchTokenTextBox As TextBox
 End Class

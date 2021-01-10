@@ -11,11 +11,12 @@ Public Class ListViewForm
     ''' </summary>
     Private _cts As New CancellationTokenSource()
     Private Async Sub TraverseButton_Click(sender As Object, e As EventArgs) Handles TraverseButton.Click
+
         If FoldersListView.Items.Count > 0 Then
             FoldersListView.Items.Clear()
         End If
 
-        Await Task.Delay(5)
+        Await Task.Delay(1)
 
 
         If String.IsNullOrWhiteSpace(FolderTextBox.Text) Then
@@ -33,6 +34,8 @@ Public Class ListViewForm
             _cts = New CancellationTokenSource()
         End If
 
+        OperationsListView.SearchText = SearchTokenTextBox.Text
+
         ProcessingLabel.Visible = True
         ProcessedTitleLabel.Visible = True
 
@@ -45,10 +48,26 @@ Public Class ListViewForm
         ProcessingLabel.Visible = False
         ProcessedTitleLabel.Visible = False
 
-        FocustListView()
+        FocusListView()
 
+        If String.IsNullOrWhiteSpace(OperationsListView.SearchText) Then
+            Exit Sub
+        End If
+
+        If OperationsListView.FoundFileList.Count = 0 Then
+            MessageBox.Show("Nothing to show")
+        Else
+            Dim resultForm = New FoundFileResultsForm
+            resultForm.FoundFileList = OperationsListView.FoundFileList
+
+            Try
+                resultForm.ShowDialog()
+            Finally
+                resultForm.Dispose()
+            End Try
+        End If
     End Sub
-    Private Sub FocustListView()
+    Private Sub FocusListView()
         FoldersListView.FocusedItem = FoldersListView.Items(0)
         FoldersListView.Items(0).Selected = True
         ActiveControl = FoldersListView
