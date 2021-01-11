@@ -57,6 +57,7 @@ Public Class ListViewForm
         If OperationsListView.FoundFileList.Count = 0 Then
             MessageBox.Show("Nothing to show")
         Else
+
             Dim resultForm = New FoundFileResultsForm
             resultForm.FoundFileList = OperationsListView.FoundFileList
 
@@ -65,6 +66,7 @@ Public Class ListViewForm
             Finally
                 resultForm.Dispose()
             End Try
+
         End If
     End Sub
     Private Sub FocusListView()
@@ -91,7 +93,11 @@ Public Class ListViewForm
         OperationsListView.Cancelled = False
         AddHandler OperationsListView.OnTraverseEvent, AddressOf OnTraverseEvent
         FoldersListView.SetDoubleBuffered()
-        FolderSelectionContextMenuStrip.Items.Cast(Of ToolStripItem)().ToList().ForEach(Sub(item) AddHandler item.Click, AddressOf ContextMenuStrip1_Click)
+
+        FolderSelectionContextMenuStrip.Items.Cast(Of ToolStripItem)().
+            ToList().
+            ForEach(Sub(item) AddHandler item.Click, AddressOf ContextMenuStrip1_Click)
+
         SetCueText(FolderTextBox, "Right click for selections")
     End Sub
 
@@ -122,6 +128,7 @@ Public Class ListViewForm
 
     End Sub
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+
         If keyData <> Keys.Escape Then
             Return MyBase.ProcessCmdKey(msg, keyData)
         End If
@@ -146,5 +153,6 @@ Public Class ListViewForm
             ' Get selected
             '
         End If
+
     End Sub
 End Class

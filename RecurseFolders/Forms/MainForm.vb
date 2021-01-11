@@ -18,18 +18,22 @@ Public Class MainForm
     ''' </summary>
     ''' <param name="sender"></param>
     Private Sub ExceptionHappened(sender As Exception)
+
         ExceptionsListBox.InvokeIfRequired(
             Sub(listBox)
                 listBox.Items.Add(sender.Message)
                 listBox.SelectedIndex = listBox.Items.Count - 1
             End Sub)
+
     End Sub
     Private Sub UnauthorizedAccessExceptionEvent(message As String)
+
         ExceptionsListBox.InvokeIfRequired(
             Sub(listBox)
                 listBox.Items.Add(message)
                 listBox.SelectedIndex = listBox.Items.Count - 1
             End Sub)
+
     End Sub
     ''' <summary>
     ''' Reports skipping a folder as it has been told to be
@@ -37,22 +41,26 @@ Public Class MainForm
     ''' </summary>
     ''' <param name="sender"></param>
     Private Sub ExcludeTraverse(sender As String)
+
         ExcludeListBox.InvokeIfRequired(
             Sub(listBox)
                 listBox.Items.Add(sender)
                 listBox.SelectedIndex = listBox.Items.Count - 1
             End Sub)
+
     End Sub
     ''' <summary>
     ''' Folders found w/o exception or in the exclude array
     ''' </summary>
     ''' <param name="sender"></param>
     Private Sub Traversing(sender As String)
+
         IncludedListBox.InvokeIfRequired(
             Sub(listBox)
                 listBox.Items.Add(sender)
                 listBox.SelectedIndex = listBox.Items.Count - 1
             End Sub)
+
     End Sub
     ''' <summary>
     ''' Cancel the current task
@@ -64,6 +72,7 @@ Public Class MainForm
     End Sub
 
     Private Async Sub TraverseButton_Click(sender As Object, e As EventArgs) Handles TraverseButton.Click
+
         If String.IsNullOrWhiteSpace(FolderTextBox.Text) Then
             MessageBox.Show("Please select a folder")
             Exit Sub
@@ -100,7 +109,6 @@ Public Class MainForm
         SetCueText(FolderTextBox, "Enter a path to traverse")
 
     End Sub
-
 
 
     Private SelectedPath As String = "C:\"

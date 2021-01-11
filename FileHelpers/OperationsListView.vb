@@ -55,6 +55,7 @@ Public Class OperationsListView
         Dim folder As DirectoryInfo
 
         Try
+
             Await Task.Run(Async Function()
 
                                For Each dir As DirectoryInfo In directoryInfo.EnumerateDirectories()
