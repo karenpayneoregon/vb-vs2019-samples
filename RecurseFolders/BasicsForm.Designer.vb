@@ -27,6 +27,7 @@ Partial Class BasicsForm
         Me.CrossThreadViolationButton = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.CrossThreadFixButton = New System.Windows.Forms.Button()
+        Me.IntermediateGetFilesButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'GetFilesConventionalButton
@@ -74,11 +75,21 @@ Partial Class BasicsForm
         Me.CrossThreadFixButton.Text = "Cross thread fix"
         Me.CrossThreadFixButton.UseVisualStyleBackColor = True
         '
+        'IntermediateGetFilesButton
+        '
+        Me.IntermediateGetFilesButton.Location = New System.Drawing.Point(23, 327)
+        Me.IntermediateGetFilesButton.Name = "IntermediateGetFilesButton"
+        Me.IntermediateGetFilesButton.Size = New System.Drawing.Size(198, 23)
+        Me.IntermediateGetFilesButton.TabIndex = 5
+        Me.IntermediateGetFilesButton.Text = "Intermediate get files"
+        Me.IntermediateGetFilesButton.UseVisualStyleBackColor = True
+        '
         'BasicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(257, 351)
+        Me.ClientSize = New System.Drawing.Size(257, 369)
+        Me.Controls.Add(Me.IntermediateGetFilesButton)
         Me.Controls.Add(Me.CrossThreadFixButton)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.CrossThreadViolationButton)
@@ -97,4 +108,5 @@ Partial Class BasicsForm
     Friend WithEvents CrossThreadViolationButton As Button
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents CrossThreadFixButton As Button
+    Friend WithEvents IntermediateGetFilesButton As Button
 End Class

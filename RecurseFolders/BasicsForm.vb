@@ -68,4 +68,41 @@ Public Class BasicsForm
             End Sub)
 
     End Sub
+
+    Private Sub IntermediateGetFilesButton_Click(sender As Object, e As EventArgs) Handles IntermediateGetFilesButton.Click
+
+        Dim folderName = "C:\OED\Dotnetland\VS2019"
+
+        For Each file In TraverseDirectory(folderName, Function(fileInfo) fileInfo.Extension = ".png")
+            Debug.WriteLine(file.FullName)
+        Next
+
+        Debug.WriteLine("Done.")
+
+    End Sub
+
+    Private Shared Iterator Function TraverseDirectory(path As String, predicatePattern As Func(Of FileInfo, Boolean)) As IEnumerable(Of FileInfo)
+
+        Dim directoryStack = New Stack(Of DirectoryInfo)()
+        directoryStack.Push(New DirectoryInfo(path))
+
+        Do While directoryStack.Count > 0
+
+            Dim dir = directoryStack.Pop()
+
+            Try
+                For Each di In dir.GetDirectories()
+                    directoryStack.Push(di)
+                Next
+            Catch e1 As UnauthorizedAccessException
+                Debug.WriteLine($"Unauthorized: {e1.Message}")
+                Continue Do ' We don't have access to this directory, so skip it
+            End Try
+
+            For Each fi In dir.GetFiles().Where(predicatePattern) ' "Pattern" is a function
+                Yield fi
+            Next
+        Loop
+
+    End Function
 End Class
