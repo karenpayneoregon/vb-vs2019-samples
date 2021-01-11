@@ -2,8 +2,6 @@
 
 Asynchronous traverse folders code sample.
 
-**A work in progress**
-
 # TechNet article
 
-TODO
+https://social.technet.microsoft.com/wiki/contents/articles/54224.iterating-directories-and-files-vb-net.aspx

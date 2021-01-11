@@ -101,12 +101,6 @@ Public Class ListViewForm
 
         FoldersListView.InvokeIfRequired(Sub(listView)
                                              listView.Items.Add(New ListViewItem(information.ItemArray))
-                                             'listView.FocusedItem = listView.Items(listView.Items.Count - 1)
-                                             'listView.Items(listView.Items.Count - 1).Selected = True
-                                             'listView.Items(listView.Items.Count - 1).EnsureVisible()
-
-
-
                                          End Sub)
 
         ProcessingLabel.InvokeIfRequired(Sub(label)
