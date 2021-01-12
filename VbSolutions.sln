@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ms access login", "ms acces
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LoginFrontend", "LoginFrontEnd\LoginFrontend.vbproj", "{76BB4360-41AC-4911-B0A8-CAED2C922832}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinFormValidationLibrary", "WinFormValidationLibrary\WinFormValidationLibrary.vbproj", "{FB6443C3-56D3-4FBD-892D-AF934030F67F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{76BB4360-41AC-4911-B0A8-CAED2C922832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76BB4360-41AC-4911-B0A8-CAED2C922832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76BB4360-41AC-4911-B0A8-CAED2C922832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6443C3-56D3-4FBD-892D-AF934030F67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6443C3-56D3-4FBD-892D-AF934030F67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6443C3-56D3-4FBD-892D-AF934030F67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6443C3-56D3-4FBD-892D-AF934030F67F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{15BD8DA9-A8A3-4475-8482-89610EF9AA15} = {E74207CE-EE06-4421-81DF-A29EED1780CD}
 		{D712D9D6-729D-4053-9141-56F6E9DE8BC0} = {4198CC8C-265C-4BF5-B43A-A924CF70F994}
 		{76BB4360-41AC-4911-B0A8-CAED2C922832} = {33C66ADE-B25F-454A-BD18-DC19D0704F59}
+		{FB6443C3-56D3-4FBD-892D-AF934030F67F} = {A3915E15-824B-43CA-AF37-07FF024258BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C48B56D8-4F7C-4AD1-A1B8-4CAE000B3670}
