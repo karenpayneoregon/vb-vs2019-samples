@@ -8,9 +8,17 @@ Public Class FoundFileResultsForm
 
         Dim sb As New StringBuilder
 
+        'For Each foundFile As FoundFile In FoundFileList
+
+        '    sb.AppendLine(foundFile.ToString())
+        '    sb.AppendLine(New String("-"c, 40))
+
+        'Next
+
+
         For Each foundFile As FoundFile In FoundFileList
 
-            sb.AppendLine(foundFile.ToString())
+            sb.AppendLine(foundFile.FileName)
             sb.AppendLine(New String("-"c, 40))
 
         Next

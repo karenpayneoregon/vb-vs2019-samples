@@ -44,7 +44,7 @@ Public Class OperationsListView
                         .Modified = directoryInfo.CreationTime
                     }
 
-            IterateFiles(di.Location, fileType)
+            IterateFilesMultipleExtensions(di.Location)
 
             RaiseEvent OnTraverseEvent(di)
 
@@ -64,7 +64,7 @@ Public Class OperationsListView
 
                                    If Not Cancelled Then
 
-                                       IterateFiles(dir.FullName, fileType)
+                                       IterateFilesMultipleExtensions(dir.FullName)
                                        Await Task.Delay(1)
                                        Await RecursiveFolders(folder, ct)
 
@@ -129,6 +129,23 @@ Public Class OperationsListView
 
                 End If
 
+            Next
+        End If
+
+    End Sub
+    Public Shared Sub IterateFilesMultipleExtensions(folderName As String)
+
+        If String.IsNullOrWhiteSpace(SearchText) Then
+            Exit Sub
+        End If
+
+
+        Dim dInfo = New DirectoryInfo(folderName)
+        Dim files = dInfo.GetFilesByExtensions(".png", ".exe").Select(Function(item) item.Name).ToArray()
+
+        If files.Length > 0 Then
+            For Each fileName As String In files
+                FoundFileList.Add(New FoundFile() With {.FileName = fileName})
             Next
         End If
 
