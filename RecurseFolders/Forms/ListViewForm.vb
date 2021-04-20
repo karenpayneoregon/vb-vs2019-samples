@@ -3,6 +3,7 @@ Imports System.Threading
 Imports System.Windows.Forms.VisualStyles
 Imports FileHelpers
 Imports RecurseFolders.Classes
+Imports RecurseFolders.Forms
 Imports RecurseFolders.LanguageExtensions
 
 Public Class ListViewForm
@@ -106,7 +107,9 @@ Public Class ListViewForm
         Await Task.Delay(100)
 
         FoldersListView.InvokeIfRequired(Sub(listView)
-                                             listView.Items.Add(New ListViewItem(information.ItemArray))
+                                             Dim item = New ListViewItem(information.ItemArray)
+                                             item.Tag = information
+                                             listView.Items.Add(item)
                                          End Sub)
 
         ProcessingLabel.InvokeIfRequired(Sub(label)
@@ -149,9 +152,9 @@ Public Class ListViewForm
         If FoldersListView.Items.Count = 0 Then
             e.Cancel = True
         Else
-            '
-            ' Get selected
-            '
+            Dim selected = FoldersListView.GetSelectedItemTag()
+            Debug.WriteLine(selected.Location)
+
         End If
 
     End Sub

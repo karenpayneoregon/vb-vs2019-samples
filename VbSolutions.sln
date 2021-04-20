@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataGridView", "DataGridView", "{8C84263F-C56D-4C2F-8DEB-02A54F597977}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataGridView (classic)", "DataGridView (classic)", "{8C84263F-C56D-4C2F-8DEB-02A54F597977}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DataGridViewDataBindingToList", "DataGridViewDataBindingToList\DataGridViewDataBindingToList.vbproj", "{5EFD11E2-4F69-41F8-946B-493F1DED98D8}"
 EndProject
@@ -12,19 +12,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{A3915E15-824B-43CA-AF37-07FF024258BB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects (mixed)", "Class projects (mixed)", "{A3915E15-824B-43CA-AF37-07FF024258BB}"
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "FileHelpers", "FileHelpers\FileHelpers.vbproj", "{A3CD00AA-1D67-426F-B904-D8A3C844D3A3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "File Directory code samples", "File Directory code samples", "{E74207CE-EE06-4421-81DF-A29EED1780CD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "File Directory code samples (net5)", "File Directory code samples (net5)", "{E74207CE-EE06-4421-81DF-A29EED1780CD}"
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "RecurseFolders", "RecurseFolders\RecurseFolders.vbproj", "{15BD8DA9-A8A3-4475-8482-89610EF9AA15}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp class projects", "csharp class projects", "{4198CC8C-265C-4BF5-B43A-A924CF70F994}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp class projects (classic)", "csharp class projects (classic)", "{4198CC8C-265C-4BF5-B43A-A924CF70F994}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FolderBrowserDialog", "FolderBrowserDialog\FolderBrowserDialog.csproj", "{D712D9D6-729D-4053-9141-56F6E9DE8BC0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ms access login", "ms access login", "{33C66ADE-B25F-454A-BD18-DC19D0704F59}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ms access login (classic)", "ms access login (classic)", "{33C66ADE-B25F-454A-BD18-DC19D0704F59}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LoginFrontend", "LoginFrontEnd\LoginFrontend.vbproj", "{76BB4360-41AC-4911-B0A8-CAED2C922832}"
 EndProject
@@ -34,11 +34,19 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "WinFormControls", "WinFormC
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "WinFormsExtensions", "WinFormsExtensions\WinFormsExtensions.vbproj", "{4B5B000A-DCDB-4427-91AF-1F2BE09E079D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{BB763437-EDB2-48FC-A706-F567779194D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF (classic)", "WPF (classic)", "{BB763437-EDB2-48FC-A706-F567779194D4}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ChangeCursorDragDrop", "ChangeCursorDragDrop\ChangeCursorDragDrop.vbproj", "{730E2740-5FB8-4D1F-80EE-C3D190DFC29F}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ChangeCursor", "ChangeCursor\ChangeCursor.vbproj", "{90C78974-C20F-454E-BDD0-30A452FECCE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp front end (classic)", "csharp front end (classic)", "{D4B4503C-7575-4BD6-8955-5C059CC388E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{F104E301-A207-4602-9F30-1BC5EC920C05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "async code (classic)", "async code (classic)", "{AEE2C567-D6E3-44C0-801D-7E931FC6BE22}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp1", "WindowsApp1\WindowsApp1.vbproj", "{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +94,14 @@ Global
 		{90C78974-C20F-454E-BDD0-30A452FECCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90C78974-C20F-454E-BDD0-30A452FECCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90C78974-C20F-454E-BDD0-30A452FECCE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F104E301-A207-4602-9F30-1BC5EC920C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F104E301-A207-4602-9F30-1BC5EC920C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F104E301-A207-4602-9F30-1BC5EC920C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F104E301-A207-4602-9F30-1BC5EC920C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +117,8 @@ Global
 		{4B5B000A-DCDB-4427-91AF-1F2BE09E079D} = {A3915E15-824B-43CA-AF37-07FF024258BB}
 		{730E2740-5FB8-4D1F-80EE-C3D190DFC29F} = {BB763437-EDB2-48FC-A706-F567779194D4}
 		{90C78974-C20F-454E-BDD0-30A452FECCE2} = {BB763437-EDB2-48FC-A706-F567779194D4}
+		{F104E301-A207-4602-9F30-1BC5EC920C05} = {D4B4503C-7575-4BD6-8955-5C059CC388E1}
+		{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5} = {AEE2C567-D6E3-44C0-801D-7E931FC6BE22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C48B56D8-4F7C-4AD1-A1B8-4CAE000B3670}
