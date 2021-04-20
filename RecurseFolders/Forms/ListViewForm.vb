@@ -152,6 +152,7 @@ Public Class ListViewForm
         If FoldersListView.Items.Count = 0 Then
             e.Cancel = True
         Else
+
             Dim selected = FoldersListView.GetSelectedItemTag()
             Debug.WriteLine(selected.Location)
 
