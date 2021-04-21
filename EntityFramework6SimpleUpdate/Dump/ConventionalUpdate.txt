@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Shows update conventional with data provider
+------------------------------------------------------------------
+Imports System.Data.SqlClient
 
 Public Class DataOperations
 
