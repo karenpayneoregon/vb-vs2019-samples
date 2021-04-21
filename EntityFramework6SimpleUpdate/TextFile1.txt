@@ -1,0 +1,108 @@
+﻿Imports System.Data.SqlClient
+
+Public Class DataOperations
+
+    Private Shared ConnectionString As String =
+                "Data Source=.\SQLEXPRESS;" &
+                "Initial Catalog=NorthWind2020;" +
+                "Integrated Security=True"
+
+    Public Shared LastException As Exception
+    Public Shared HasException As Boolean
+
+    Public Shared ReadOnly Property IsSuccessful() As Boolean
+        Get
+            Return HasException = False
+        End Get
+    End Property
+
+    Public Shared Function Update(pContact As Contact) As UpdateResult
+
+        HasException = False
+
+        Dim selectStatement =
+                "SELECT COUNT(ContactId) FROM NorthWindAzureForInserts.dbo.Contacts " &
+                "WHERE ContactId = @ContactId"
+
+        Dim updateStatement =
+                "UPDATE dbo.Contacts SET FirstName = @FirstName,LastName = @LastName " &
+                "WHERE ContactId = @ContactId"
+
+        Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+
+            Using cmd As New SqlCommand With {.Connection = cn}
+
+                cmd.CommandText = selectStatement
+
+                Try
+
+                    cn.Open()
+
+                    cmd.Parameters.AddWithValue("@ContactId",
+                                                pContact.ContactId)
+
+                    Dim count = CInt(cmd.ExecuteScalar())
+
+                    If count = 1 Then
+
+                        cmd.Parameters.Add(New SqlParameter("@FirstName", SqlDbType.NVarChar)).
+                            Value = pContact.FirstName
+
+                        cmd.Parameters.Add(New SqlParameter("@LastName", SqlDbType.NVarChar)).
+                            Value = pContact.LastName
+
+                        cmd.Parameters("@ContactId").Value = pContact.ContactId
+
+
+                        cmd.CommandText = updateStatement
+
+                        cmd.ExecuteNonQuery()
+
+                        Return UpdateResult.Success
+
+                    Else
+                        Return UpdateResult.NotFound
+                    End If
+
+                Catch ex As Exception
+                    HasException = True
+                    LastException = ex
+                    Return UpdateResult.Failed
+                End Try
+            End Using
+        End Using
+    End Function
+
+
+End Class
+
+Public Class Contact
+    Public Property ContactId() As Integer
+    Public Property FirstName() As String
+    Public Property LastName() As String
+    Public ReadOnly Property FullName() As String
+        Get
+            Return $"{FirstName} {LastName}"
+        End Get
+    End Property
+End Class
+Public Enum UpdateResult
+    Success
+    Failed
+    NotFound
+End Enum
+---------------------------------------
+        Dim contact As New Contact With {
+                .ContactId = 2,
+                .FirstName = "Ana",
+                .LastName = "Trujillo"}
+
+        Dim success = DataOperations.Update(contact)
+
+        If DataOperations.IsSuccessful AndAlso success = UpdateResult.Success Then
+            Debug.WriteLine("Contact updated")
+        ElseIf success = UpdateResult.NotFound Then
+            Debug.WriteLine("Contact not found")
+        ElseIf success = UpdateResult.Failed Then
+            Debug.WriteLine(DataOperations.LastException.Message)
+        End If

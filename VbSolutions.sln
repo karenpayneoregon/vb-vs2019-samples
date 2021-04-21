@@ -48,11 +48,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "async code (classic)", "asy
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp1", "WindowsApp1\WindowsApp1.vbproj", "{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SqlHelpers", "SqlHelpers\SqlHelpers.vbproj", "{029E960D-999D-4E78-8B17-7BA8DDE4DDA6}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "SqlHelpers", "SqlHelpers\SqlHelpers.vbproj", "{029E960D-999D-4E78-8B17-7BA8DDE4DDA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console projects (net5)", "Console projects (net5)", "{89895C99-7EF8-44E3-9AC0-E0DA9BD5B55C}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SqlWhereBuilderFrontend", "SqlWhereBuilderFrontend\SqlWhereBuilderFrontend.vbproj", "{A6C566C1-9980-4753-ADA8-908F44A7EAD2}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "SqlWhereBuilderFrontend", "SqlWhereBuilderFrontend\SqlWhereBuilderFrontend.vbproj", "{A6C566C1-9980-4753-ADA8-908F44A7EAD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity Framework 6", "Entity Framework 6", "{2AF7D77A-950D-4923-9C9B-F8C62A3F502B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EntityFramework6SimpleUpdate", "EntityFramework6SimpleUpdate\EntityFramework6SimpleUpdate.vbproj", "{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -116,6 +120,10 @@ Global
 		{A6C566C1-9980-4753-ADA8-908F44A7EAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6C566C1-9980-4753-ADA8-908F44A7EAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6C566C1-9980-4753-ADA8-908F44A7EAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,6 +143,7 @@ Global
 		{B8DAE7F5-1FAE-4208-A983-677F41D5C6A5} = {AEE2C567-D6E3-44C0-801D-7E931FC6BE22}
 		{029E960D-999D-4E78-8B17-7BA8DDE4DDA6} = {A3915E15-824B-43CA-AF37-07FF024258BB}
 		{A6C566C1-9980-4753-ADA8-908F44A7EAD2} = {89895C99-7EF8-44E3-9AC0-E0DA9BD5B55C}
+		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C} = {2AF7D77A-950D-4923-9C9B-F8C62A3F502B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C48B56D8-4F7C-4AD1-A1B8-4CAE000B3670}
