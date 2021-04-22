@@ -58,6 +58,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity Framework 6", "Entit
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EntityFramework6SimpleUpdate", "EntityFramework6SimpleUpdate\EntityFramework6SimpleUpdate.vbproj", "{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "My namespace", "My namespace", "{FDF926FF-8220-491D-8BFF-1ACF38DEE39E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EncryptSettings", "EncryptSettings\EncryptSettings.vbproj", "{FE8E85D3-CD03-44EF-9727-AFD189BAA386}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +128,10 @@ Global
 		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE8E85D3-CD03-44EF-9727-AFD189BAA386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8E85D3-CD03-44EF-9727-AFD189BAA386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8E85D3-CD03-44EF-9727-AFD189BAA386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8E85D3-CD03-44EF-9727-AFD189BAA386}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,6 +152,7 @@ Global
 		{029E960D-999D-4E78-8B17-7BA8DDE4DDA6} = {A3915E15-824B-43CA-AF37-07FF024258BB}
 		{A6C566C1-9980-4753-ADA8-908F44A7EAD2} = {89895C99-7EF8-44E3-9AC0-E0DA9BD5B55C}
 		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C} = {2AF7D77A-950D-4923-9C9B-F8C62A3F502B}
+		{FE8E85D3-CD03-44EF-9727-AFD189BAA386} = {FDF926FF-8220-491D-8BFF-1ACF38DEE39E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C48B56D8-4F7C-4AD1-A1B8-4CAE000B3670}
