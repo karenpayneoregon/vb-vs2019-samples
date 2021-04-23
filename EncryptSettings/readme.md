@@ -31,7 +31,7 @@ Also using the same method above we can do a json file.
 ```
 # Notes
 
-:yellow_circle:  Feel free to refactor encryption and decryption methods.
+:bulb:  Feel free to refactor encryption and decryption methods.
 
 # Requires
 
