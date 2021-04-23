@@ -19,8 +19,8 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Operations.CreateStructure()
-        Dim userDetails = Operations.Read()
+        JsonOperations.CreateStructure()
+        Dim userDetails = JsonOperations.Read()
 
         Console.WriteLine($"{userDetails.UserName}, {userDetails.UserPassword}, {userDetails.UseDefaultCredentials}")
     End Sub
