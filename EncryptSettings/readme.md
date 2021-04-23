@@ -20,6 +20,16 @@ Created using `VS2019`, .NET Framework `4.8`
 </configuration>
 ```
 
+Also using the same method above we can do a json file.
+
+```json
+{
+  "UserName": "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeyGgHNEX6UeW1fJWdfqQbgAAAAACAAAAAAADZgAAwAAAABAAAADE+2HrEB+FxKBavWYqCqYhAAAAAASAAACgAAAAEAAAAPDLmEW3NYC/xO3N/Wj5XpgQAAAAq8DaWpFFvhFuKswKuaMDKxQAAABr8AyT0sbsw9vaBipgtpVPP9mnug==",
+  "UserPassword": "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeyGgHNEX6UeW1fJWdfqQbgAAAAACAAAAAAADZgAAwAAAABAAAADkMR+W6HYYNSISdxKbyV7gAAAAAASAAACgAAAAEAAAAMq7LPuGsnsiq7Rbi1KaZB4YAAAAOoxjALdhYocdhCvqV4BO2jzVEn/SiTwIFAAAAI4KcHcFhacHoQZtv90IAFBNQ7NQ",
+  "UseDefaultCredentials": false
+}
+```
+
 # Requires
 
 NuGet package [System.Security.Cryptography.ProtectedData -Version 5.0.0](https://www.nuget.org/packages/System.Security.Cryptography.ProtectedData/6.0.0-preview.3.21201.4)
