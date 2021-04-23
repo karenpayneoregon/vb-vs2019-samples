@@ -1,7 +1,13 @@
 ﻿
 
 Public Class Form1
+    ''' <summary>
+    ''' Encrypt to user.config, not app.config
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub EncryptButton_Click(sender As Object, e As EventArgs) Handles EncryptButton.Click
+
         My.Settings.UserName = Modules.EncryptString(Modules.ToSecureString("payne"))
         My.Settings.UserPassword = Modules.EncryptString(Modules.ToSecureString("@123Xder"))
 

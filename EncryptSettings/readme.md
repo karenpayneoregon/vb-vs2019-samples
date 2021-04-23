@@ -29,6 +29,9 @@ Also using the same method above we can do a json file.
   "UseDefaultCredentials": false
 }
 ```
+# Notes
+
+:yellow_circle:  Feel free to refactor encryption and decryption methods.
 
 # Requires
 
