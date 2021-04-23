@@ -32,7 +32,10 @@ Also using the same method above we can do a json file.
 
 # Requires
 
-NuGet package [System.Security.Cryptography.ProtectedData -Version 5.0.0](https://www.nuget.org/packages/System.Security.Cryptography.ProtectedData/6.0.0-preview.3.21201.4)
+NuGet packages
+
+:heavy_check_mark: [System.Security.Cryptography.ProtectedData -Version 5.0.0](https://www.nuget.org/packages/System.Security.Cryptography.ProtectedData/6.0.0-preview.3.21201.4)
+:heavy_check_mark: [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 
 ![img](assets/vb1.png)
 
