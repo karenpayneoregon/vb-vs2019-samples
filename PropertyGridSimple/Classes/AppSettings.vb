@@ -10,10 +10,10 @@ Public Class AppSettings
     <Description("Name of the thing")>
     Public Property Name() As String
 
-    <Description("Whether activated or not")>
+    <Category("Main 1"), Description("Whether activated or not")>
     Public Property Activated() As Boolean
 
-    <Description("Rank of the thing")>
+    <Category("Main 1"), Description("Rank of the thing")>
     Public Property Rank() As Integer
 
     <Description("extra free-form attributes on this thing.")> <Editor("System.Windows.Forms.Design.StringCollectionEditor," & "System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",

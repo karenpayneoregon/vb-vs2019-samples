@@ -28,14 +28,15 @@ Partial Class Form1
         '
         'PropertyGrid1
         '
+        Me.PropertyGrid1.CategoryForeColor = System.Drawing.Color.MidnightBlue
         Me.PropertyGrid1.Location = New System.Drawing.Point(18, 10)
         Me.PropertyGrid1.Name = "PropertyGrid1"
-        Me.PropertyGrid1.Size = New System.Drawing.Size(285, 345)
+        Me.PropertyGrid1.Size = New System.Drawing.Size(285, 400)
         Me.PropertyGrid1.TabIndex = 0
         '
         'DetailsButton
         '
-        Me.DetailsButton.Location = New System.Drawing.Point(18, 379)
+        Me.DetailsButton.Location = New System.Drawing.Point(18, 427)
         Me.DetailsButton.Name = "DetailsButton"
         Me.DetailsButton.Size = New System.Drawing.Size(75, 23)
         Me.DetailsButton.TabIndex = 1
@@ -46,11 +47,13 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(320, 433)
+        Me.ClientSize = New System.Drawing.Size(320, 462)
         Me.Controls.Add(Me.DetailsButton)
         Me.Controls.Add(Me.PropertyGrid1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Basic Property Grid"
         Me.ResumeLayout(False)
 
     End Sub
