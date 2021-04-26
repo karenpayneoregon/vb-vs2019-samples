@@ -74,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.vb" />
+    <Compile Include="DrinkDoses.vb" />
+    <Compile Include="DrinkDosesConverter.vb" />
+    <Compile Include="QuestionClassConverter.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

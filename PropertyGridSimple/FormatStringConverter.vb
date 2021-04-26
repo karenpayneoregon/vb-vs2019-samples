@@ -11,7 +11,7 @@ Public Class FormatStringConverter
     End Function
     Public Overrides Function GetStandardValues(context As ITypeDescriptorContext) As StandardValuesCollection
         Dim list As New List(Of String) From {
-                "",
+                "(select)",
                 "Jim",
                 "Mary",
                 "Frank",

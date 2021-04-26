@@ -3,7 +3,7 @@
 Public Class AppSettings
     <Category("Main"), DisplayName("About"), Description("Some text to say about this property")>
     Public Property Description() As String
-    <Category("Section 1"), Description("Priority of something")>
+    <Category("Section 1"), Description("Priority of something"), DefaultValue(Priority.Medium)>
     Public Property Priority() As Priority
     <Category("Section 2"), Description("Person name")>
     Public Property Assigned() As String
@@ -28,15 +28,21 @@ Public Class AppSettings
         End Get
     End Property
     Private _attributes As List(Of String)
-    Private _formatString As String
 
     <TypeConverter(GetType(FormatStringConverter))>
-    Public Property Names() As String
-        Get
-            Return _formatString
-        End Get
-        Set(ByVal value As String)
-            _formatString = value
-        End Set
-    End Property
+    Public Property Names As String
+
+    <DisplayName("Question")>
+    <Description("Answer this")>
+    <Category("Make right decision")>
+    <TypeConverter(GetType(QuestionClassConverter))>
+    Public Property Question As Boolean
+
+    <DisplayName("Doses")>
+    <Description("Drinker doses")>
+    <Category("Alcoholics drinking")>
+    <TypeConverter(GetType(DrinkDosesConverter))>
+    Public Property Doses As DrinkDoses
+
+    Public Property DataInt As Integer
 End Class
