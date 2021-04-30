@@ -6,9 +6,7 @@ Namespace Modules
 
         Public Function EncryptString(input As SecureString) As String
 
-            Dim encryptedData() As Byte = Cryptography.ProtectedData.Protect(
-                Text.Encoding.Unicode.GetBytes(ToInsecureString(input)),
-                entropy, Cryptography.DataProtectionScope.CurrentUser)
+            Dim encryptedData() As Byte = Cryptography.ProtectedData.Protect(Text.Encoding.Unicode.GetBytes(ToInsecureString(input)), entropy, Cryptography.DataProtectionScope.CurrentUser)
 
             Return Convert.ToBase64String(encryptedData)
 
@@ -18,8 +16,7 @@ Namespace Modules
 
             Try
 
-                Dim decryptedData() As Byte = Cryptography.ProtectedData.Unprotect(
-                    Convert.FromBase64String(encryptedData), entropy, Cryptography.DataProtectionScope.CurrentUser)
+                Dim decryptedData() As Byte = Cryptography.ProtectedData.Unprotect(Convert.FromBase64String(encryptedData), entropy, Cryptography.DataProtectionScope.CurrentUser)
 
                 Return ToSecureString(Text.Encoding.Unicode.GetString(decryptedData))
 

@@ -64,6 +64,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EncryptSettings", "EncryptS
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PropertyGridSimple", "PropertyGridSimple\PropertyGridSimple.vbproj", "{AD5B3E40-9B75-4DB8-BC78-047572795101}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionServices", "EncryptionServices\EncryptionServices.csproj", "{F3FA2155-E5F4-4887-818A-7BE80A7315C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionServicesConsoleApp", "EncryptionServicesConsoleApp\EncryptionServicesConsoleApp.csproj", "{7C77888B-97E9-4077-AD62-FED70990CE2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -138,6 +142,14 @@ Global
 		{AD5B3E40-9B75-4DB8-BC78-047572795101}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD5B3E40-9B75-4DB8-BC78-047572795101}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD5B3E40-9B75-4DB8-BC78-047572795101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3FA2155-E5F4-4887-818A-7BE80A7315C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3FA2155-E5F4-4887-818A-7BE80A7315C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3FA2155-E5F4-4887-818A-7BE80A7315C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3FA2155-E5F4-4887-818A-7BE80A7315C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C77888B-97E9-4077-AD62-FED70990CE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C77888B-97E9-4077-AD62-FED70990CE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C77888B-97E9-4077-AD62-FED70990CE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C77888B-97E9-4077-AD62-FED70990CE2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +172,8 @@ Global
 		{E58736B1-478D-42A3-BEF0-8E95DDD7AC3C} = {2AF7D77A-950D-4923-9C9B-F8C62A3F502B}
 		{FE8E85D3-CD03-44EF-9727-AFD189BAA386} = {FDF926FF-8220-491D-8BFF-1ACF38DEE39E}
 		{AD5B3E40-9B75-4DB8-BC78-047572795101} = {A3915E15-824B-43CA-AF37-07FF024258BB}
+		{F3FA2155-E5F4-4887-818A-7BE80A7315C3} = {4198CC8C-265C-4BF5-B43A-A924CF70F994}
+		{7C77888B-97E9-4077-AD62-FED70990CE2E} = {89895C99-7EF8-44E3-9AC0-E0DA9BD5B55C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C48B56D8-4F7C-4AD1-A1B8-4CAE000B3670}
