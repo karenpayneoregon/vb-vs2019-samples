@@ -9,6 +9,10 @@ Simple examples for starting an external process, in this case `PowerShell`, wai
 
 - [.NET5 Framework](https://dotnet.microsoft.com/download)
 - [Newtonsoft.Json](http://example.com) NuGet package
+- Project (C#) JsonForVbLibrary for date conversions in the process for obtaining computer details.
+
+
+Originally `Operations.GetComputerInformationTask()` used Json.net while that has been commented out in favor of `System.Text.Json`
 
 ![img](assets/pg.png)
 
