@@ -12,5 +12,6 @@ Public Class Form1
 
         Dim details = Await Operations.GetComputerInformationTask()
         PropertyGrid1.SelectedObject = details
+
     End Sub
 End Class
