@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports Newtonsoft.Json
+Imports PowerShellGetTimeZoneDetailsNet5.Classes
 Imports PowerShellGetTimeZoneDetailsNet5.Containers
 
 Public Class Operations
