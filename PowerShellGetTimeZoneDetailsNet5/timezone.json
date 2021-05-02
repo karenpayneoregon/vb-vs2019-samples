@@ -1,0 +1,20 @@
+﻿{
+  "Id": "Pacific Standard Time",
+  "DisplayName": "(UTC-08:00) Pacific Time (US \u0026 Canada)",
+  "StandardName": "Pacific Standard Time",
+  "DaylightName": "Pacific Daylight Time",
+  "BaseUtcOffset": {
+    "Ticks": -288000000000,
+    "Days": 0,
+    "Hours": -8,
+    "Milliseconds": 0,
+    "Minutes": 0,
+    "Seconds": 0,
+    "TotalDays": -0.33333333333333331,
+    "TotalHours": -8,
+    "TotalMilliseconds": -28800000,
+    "TotalMinutes": -480,
+    "TotalSeconds": -28800
+  },
+  "SupportsDaylightSavingTime": true
+}
