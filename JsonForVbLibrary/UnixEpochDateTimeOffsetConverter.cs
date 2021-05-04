@@ -21,14 +21,14 @@ namespace JsonForVbLibrary
     /// </remarks>
     public sealed class UnixEpochDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
     {
-        static readonly DateTimeOffset s_epoch = new(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
-        static readonly Regex s_regex = new("^/Date\\(([^+-]+)([+-])(\\d{2})(\\d{2})\\)/$", RegexOptions.CultureInvariant);
+        static readonly DateTimeOffset epochDateTime = new(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
+        static readonly Regex regex = new("^/Date\\(([^+-]+)([+-])(\\d{2})(\\d{2})\\)/$", RegexOptions.CultureInvariant);
 
         public override DateTimeOffset Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
 
             string formatted = reader.GetString();
-            Match match = s_regex.Match(formatted);
+            Match match = regex.Match(formatted);
 
             if ( !match.Success
                 || !long.TryParse(match.Groups[1].Value, NumberStyles.Integer, CultureInfo.InvariantCulture, out long unixTime)
@@ -41,12 +41,12 @@ namespace JsonForVbLibrary
             int sign = match.Groups[2].Value[0] == '+' ? 1 : -1;
             TimeSpan utcOffset = new TimeSpan(hours * sign, minutes * sign, 0);
 
-            return s_epoch.AddMilliseconds(unixTime).ToOffset(utcOffset);
+            return epochDateTime.AddMilliseconds(unixTime).ToOffset(utcOffset);
         }
 
         public override void Write(Utf8JsonWriter writer, DateTimeOffset value, JsonSerializerOptions options)
         {
-            long unixTime = Convert.ToInt64((value - s_epoch).TotalMilliseconds);
+            long unixTime = Convert.ToInt64((value - epochDateTime).TotalMilliseconds);
             TimeSpan utcOffset = value.Offset;
 
             var formatted = FormattableString

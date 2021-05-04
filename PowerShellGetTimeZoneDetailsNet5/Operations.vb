@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports Newtonsoft.Json
 Imports PowerShellGetTimeZoneDetailsNet5.Classes
 Imports PowerShellGetTimeZoneDetailsNet5.Containers
 
@@ -32,7 +31,8 @@ Public Class Operations
                 Await process.WaitForExitAsync()
                 Dim json = Await File.ReadAllTextAsync(fileName)
 
-                Return JsonConvert.DeserializeObject(Of TimezoneItem)(json)
+                'Return JsonConvert.DeserializeObject(Of TimezoneItem)(json)
+                Return JSonHelper.DeserializeObject(Of TimezoneItem)(json)
 
             End Using
 
@@ -70,9 +70,10 @@ Public Class Operations
 
 
                 Dim json = Await File.ReadAllTextAsync(fileName)
-                Return JSonHelper.JSonToObject(Of MachineComputerInformation)(json)
 
                 'Return JsonConvert.DeserializeObject(Of MachineComputerInformation)(json)
+                Return JSonHelper.DeserializeObject(Of MachineComputerInformation)(json)
+
 
             End Using
         End Using
