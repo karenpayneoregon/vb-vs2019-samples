@@ -26,7 +26,7 @@ Namespace Classes
         ''' <typeparam name="TModel">Type to deserialize Json to</typeparam>
         ''' <param name="json">Valid json for deserialize TModel too</param>
         ''' <returns>List(Of TModel)</returns>
-        Public Shared Function JSonToList(Of TModel)(json As String) As List(Of TModel)
+        Public Shared Function DeserializeToList(Of TModel)(json As String) As List(Of TModel)
 
             Dim options As New JsonSerializerOptions()
             options.Converters.Add(New UnixEpochDateTimeConverter())
@@ -54,7 +54,7 @@ Namespace Classes
         ''' <param name="fileName">File json to this file</param>
         ''' <param name="format">true to format json, otherwise no formatting</param>
         ''' <returns>Value Tuple, on success return true/null, otherwise false and the exception thrown</returns>
-        Public Shared Function JsonToListFormatted(Of TModel)(sender As List(Of TModel), fileName As String, Optional format As Boolean = True) As (result As Boolean, exception As Exception)
+        Public Shared Function SerializeToListFormatted(Of TModel)(sender As List(Of TModel), fileName As String, Optional format As Boolean = True) As (result As Boolean, exception As Exception)
 
             Try
 
