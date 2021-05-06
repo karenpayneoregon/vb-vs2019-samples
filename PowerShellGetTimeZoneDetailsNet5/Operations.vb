@@ -1,10 +1,14 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports PowerShellGetTimeZoneDetailsNet5.Classes
 Imports PowerShellGetTimeZoneDetailsNet5.Containers
 
 Public Class Operations
 
-    Public Shared Async Function GetTimeZoneTask() As Task(Of TimezoneItem)
+    Public Delegate Sub FinishErrorDelegate(timeSpent As String)
+    Public Shared Event FinishedEvent As FinishErrorDelegate
+
+    Public Shared Async Function GetTimeZoneTask(cts As CancellationTokenSource) As Task(Of TimezoneItem)
 
         Const fileName = "timezone.json"
 
@@ -28,7 +32,16 @@ Public Class Operations
                 Dim fileContents = Await reader.ReadToEndAsync()
 
                 Await File.WriteAllTextAsync(fileName, fileContents)
-                Await process.WaitForExitAsync()
+
+                StopWatcher.Instance.Start()
+
+                Await process.WaitForExitAsync(cts.Token)
+
+                StopWatcher.Instance.Stop()
+
+                RaiseEvent FinishedEvent(StopWatcher.Instance.ElapsedFormatted)
+
+
                 Dim json = Await File.ReadAllTextAsync(fileName)
 
                 'Return JsonConvert.DeserializeObject(Of TimezoneItem)(json)
@@ -40,7 +53,7 @@ Public Class Operations
 
     End Function
 
-    Public Shared Async Function GetComputerInformationTask() As Task(Of MachineComputerInformation)
+    Public Shared Async Function GetComputerInformationTask(cts As CancellationTokenSource) As Task(Of MachineComputerInformation)
 
         Const fileName = "computerInformation.json"
 
@@ -66,14 +79,23 @@ Public Class Operations
                 Dim fileContents = Await reader.ReadToEndAsync()
 
                 Await File.WriteAllTextAsync(fileName, fileContents)
-                Await process.WaitForExitAsync()
+
+                StopWatcher.Instance.Start()
+
+                Await process.WaitForExitAsync(cts.Token)
+
+                StopWatcher.Instance.Stop()
+
+                RaiseEvent FinishedEvent(StopWatcher.Instance.ElapsedFormatted)
 
 
                 Dim json = Await File.ReadAllTextAsync(fileName)
 
+                ' if using Newtonsoft
                 'Return JsonConvert.DeserializeObject(Of MachineComputerInformation)(json)
-                Return JSonHelper.DeserializeObject(Of MachineComputerInformation)(json)
 
+                ' using System.Text.Json
+                Return JSonHelper.DeserializeObject(Of MachineComputerInformation)(json)
 
             End Using
         End Using

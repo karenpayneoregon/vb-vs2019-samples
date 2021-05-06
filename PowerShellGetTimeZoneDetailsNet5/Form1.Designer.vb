@@ -27,6 +27,12 @@ Partial Class Form1
         Me.DisplayNameTextBox = New System.Windows.Forms.TextBox()
         Me.ComputerInfoButton = New System.Windows.Forms.Button()
         Me.PropertyGrid1 = New System.Windows.Forms.PropertyGrid()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TimeLabel = New System.Windows.Forms.Label()
+        Me.StartTimerButton = New System.Windows.Forms.Button()
+        Me.StopTimerButton = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GetTimeZoneDetailsButton
@@ -56,7 +62,7 @@ Partial Class Form1
         '
         'ComputerInfoButton
         '
-        Me.ComputerInfoButton.Location = New System.Drawing.Point(12, 111)
+        Me.ComputerInfoButton.Location = New System.Drawing.Point(16, 137)
         Me.ComputerInfoButton.Name = "ComputerInfoButton"
         Me.ComputerInfoButton.Size = New System.Drawing.Size(579, 23)
         Me.ComputerInfoButton.TabIndex = 3
@@ -65,16 +71,66 @@ Partial Class Form1
         '
         'PropertyGrid1
         '
-        Me.PropertyGrid1.Location = New System.Drawing.Point(19, 151)
+        Me.PropertyGrid1.Location = New System.Drawing.Point(12, 194)
         Me.PropertyGrid1.Name = "PropertyGrid1"
         Me.PropertyGrid1.Size = New System.Drawing.Size(583, 351)
         Me.PropertyGrid1.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 164)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(80, 15)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Elapsed  time:"
+        '
+        'TimeLabel
+        '
+        Me.TimeLabel.AutoSize = True
+        Me.TimeLabel.Location = New System.Drawing.Point(100, 165)
+        Me.TimeLabel.Name = "TimeLabel"
+        Me.TimeLabel.Size = New System.Drawing.Size(31, 15)
+        Me.TimeLabel.TabIndex = 6
+        Me.TimeLabel.Text = "0:0:0"
+        '
+        'StartTimerButton
+        '
+        Me.StartTimerButton.Location = New System.Drawing.Point(25, 27)
+        Me.StartTimerButton.Name = "StartTimerButton"
+        Me.StartTimerButton.Size = New System.Drawing.Size(75, 23)
+        Me.StartTimerButton.TabIndex = 7
+        Me.StartTimerButton.Text = "Start"
+        Me.StartTimerButton.UseVisualStyleBackColor = True
+        '
+        'StopTimerButton
+        '
+        Me.StopTimerButton.Location = New System.Drawing.Point(106, 26)
+        Me.StopTimerButton.Name = "StopTimerButton"
+        Me.StopTimerButton.Size = New System.Drawing.Size(75, 23)
+        Me.StopTimerButton.TabIndex = 8
+        Me.StopTimerButton.Text = "Stop"
+        Me.StopTimerButton.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.StopTimerButton)
+        Me.GroupBox1.Controls.Add(Me.StartTimerButton)
+        Me.GroupBox1.Location = New System.Drawing.Point(390, 55)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(201, 60)
+        Me.GroupBox1.TabIndex = 9
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Stop watch example"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 514)
+        Me.ClientSize = New System.Drawing.Size(614, 557)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.TimeLabel)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PropertyGrid1)
         Me.Controls.Add(Me.ComputerInfoButton)
         Me.Controls.Add(Me.DisplayNameTextBox)
@@ -84,14 +140,20 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Process start / Powershell"
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.PerformLayout
 
-    End Sub
+End Sub
 
     Friend WithEvents GetTimeZoneDetailsButton As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents DisplayNameTextBox As TextBox
     Friend WithEvents ComputerInfoButton As Button
     Friend WithEvents PropertyGrid1 As PropertyGrid
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TimeLabel As Label
+    Friend WithEvents StartTimerButton As Button
+    Friend WithEvents StopTimerButton As Button
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
