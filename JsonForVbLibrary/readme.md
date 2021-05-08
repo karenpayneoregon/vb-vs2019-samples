@@ -1,8 +1,10 @@
 ﻿# About 
 
-These converters are required for readin computer details in [this method](https://github.com/karenpayneoregon/vb-vs2019-samples/blob/Branch1/PowerShellGetTimeZoneDetailsNet5/Operations.vb#L42) written with VB.NET
+These converters are required for reading computer details in [this method](https://github.com/karenpayneoregon/vb-vs2019-samples/blob/Branch1/PowerShellGetTimeZoneDetailsNet5/Operations.vb#L42) written with VB.NET
 
 These converters assist with the VB.NET frontend code as per below from Microsoft.
+
+Note the original converter was not returning proper dates so I altered the code so they do.
 
 <table>
 	<tr>

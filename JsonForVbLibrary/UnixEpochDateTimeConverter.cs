@@ -28,7 +28,7 @@ namespace JsonForVbLibrary
 
             return !match.Success || !long.TryParse(match.Groups[1].Value, NumberStyles.Integer, CultureInfo.InvariantCulture, out long unixTime) ? 
                 throw new JsonException() : 
-                epochDateTime.AddMilliseconds(unixTime);
+                epochDateTime.AddMilliseconds(unixTime).ToLocalTime();
         }
 
         public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
