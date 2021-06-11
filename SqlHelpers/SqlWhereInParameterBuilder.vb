@@ -32,9 +32,7 @@ Public Module SqlWhereInParameterBuilder
 
         paramPrefix = StripFunction(paramPrefix)
 
-        Dim parameterNames = parameters.Select(
-            Function(paramText, paramNumber) $"@{paramPrefix.Replace(".", "")}{paramNumber}").ToArray()
-
+        Dim parameterNames = parameters.Select(Function(paramText, paramNumber) $"@{paramPrefix.Replace(".", "")}{paramNumber}").ToArray()
         Dim whereInClause = String.Format(partialClause.Trim(), String.Join(",", parameterNames))
 
         Return whereInClause
@@ -52,8 +50,7 @@ Public Module SqlWhereInParameterBuilder
         paramPrefix = StripFunction(paramPrefix)
 
         Dim parameterValues = parameters.Select(Function(paramText) paramText).ToArray()
-        Dim parameterNames() As String = parameterValues.Select(
-            Function(paramText, paramNumber) $"@{paramPrefix.Replace(".", "")}{paramNumber}").ToArray()
+        Dim parameterNames() As String = parameterValues.Select(Function(paramText, paramNumber) $"@{paramPrefix.Replace(".", "")}{paramNumber}").ToArray()
 
         For index As Integer = 0 To parameterNames.Length - 1
             cmd.Parameters.AddWithValue(parameterNames(index), parameterValues(index))

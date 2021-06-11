@@ -79,7 +79,13 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "StreamWriterExample", "Stre
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PowerShellGetTimeZoneDetailsNet5", "PowerShellGetTimeZoneDetailsNet5\PowerShellGetTimeZoneDetailsNet5.vbproj", "{D0074A98-A4E4-4794-8136-DB61F3C753B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonForVbLibrary", "JsonForVbLibrary\JsonForVbLibrary.csproj", "{AE6859AC-8002-4025-A2AD-8AB8FE755FD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonForVbLibrary", "JsonForVbLibrary\JsonForVbLibrary.csproj", "{AE6859AC-8002-4025-A2AD-8AB8FE755FD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataGridView", "DataGridView", "{52D80D17-3EFD-4FAC-BFB0-2E95E00C524A}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CountValueDataGridView", "CountValueDataGridView\CountValueDataGridView.vbproj", "{DBE62F49-CA61-47E1-98B2-AE26582D7E2E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "StopWatchExample", "StopWatchExample\StopWatchExample.vbproj", "{219B802D-2DFB-4330-944E-147F8F7F3781}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -175,6 +181,14 @@ Global
 		{AE6859AC-8002-4025-A2AD-8AB8FE755FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE6859AC-8002-4025-A2AD-8AB8FE755FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE6859AC-8002-4025-A2AD-8AB8FE755FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE62F49-CA61-47E1-98B2-AE26582D7E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE62F49-CA61-47E1-98B2-AE26582D7E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE62F49-CA61-47E1-98B2-AE26582D7E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE62F49-CA61-47E1-98B2-AE26582D7E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{219B802D-2DFB-4330-944E-147F8F7F3781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{219B802D-2DFB-4330-944E-147F8F7F3781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{219B802D-2DFB-4330-944E-147F8F7F3781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{219B802D-2DFB-4330-944E-147F8F7F3781}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,6 +216,7 @@ Global
 		{6CB47051-6126-4AA4-A7F6-70FF6AA7F468} = {A334C173-A941-4D71-AC6F-504E1429062B}
 		{D0074A98-A4E4-4794-8136-DB61F3C753B0} = {AEE2C567-D6E3-44C0-801D-7E931FC6BE22}
 		{AE6859AC-8002-4025-A2AD-8AB8FE755FD6} = {4198CC8C-265C-4BF5-B43A-A924CF70F994}
+		{DBE62F49-CA61-47E1-98B2-AE26582D7E2E} = {52D80D17-3EFD-4FAC-BFB0-2E95E00C524A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C48B56D8-4F7C-4AD1-A1B8-4CAE000B3670}

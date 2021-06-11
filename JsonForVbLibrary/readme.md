@@ -13,3 +13,5 @@ Note the original converter was not returning proper dates so I altered the code
 		</td>
 	</tr>
 </table>
+
+**See also** [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json?view=net-5.0) and for C# [code sample](https://github.com/karenpayneoregon/power-shell-process-cs).

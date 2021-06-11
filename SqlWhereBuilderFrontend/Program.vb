@@ -11,10 +11,7 @@ Module Program
 End Module
 
 Public Class Examples
-    Private Shared ConnectionStringWorks As String =
-                       "Data Source=.\SQLEXPRESS;" &
-                       "Initial Catalog=NorthWind2020;" &
-                       "Integrated Security=True"
+    Private Shared ConnectionStringWorks As String = "Data Source=.\SQLEXPRESS;Initial Catalog=NorthWind2020;Integrated Security=True"
     Public Shared Function ReadCustomersByContactType(pContactTitleList As List(Of String)) As DataTable
 
         'mHasException = False
@@ -25,18 +22,18 @@ Public Class Examples
         ' Base SELECT Statement
         Dim selectStatement =
                 <SQL>
-            SELECT C.CustomerIdentifier ,
-                   C.CompanyName ,
-                   Contacts.FirstName + ' ' + Contacts.LastName AS ContactName, 
-                   C.ContactTypeIdentifier ,
-                   FORMAT(C.ModifiedDate, 'MM-dd-yyyy', 'en-US') AS ModifiedDate,
-                   CT.ContactTitle
-            FROM   dbo.Customers AS C
-            INNER JOIN dbo.ContactType AS CT ON C.ContactTypeIdentifier = CT.ContactTypeIdentifier
-            INNER JOIN dbo.Contacts ON C.ContactId = Contacts.ContactId  AND CT.ContactTypeIdentifier = Contacts.ContactTypeIdentifier 
-            WHERE <%= parameterPrefix %> IN ({0})
-            ORDER BY C.CompanyName
-            </SQL>.Value
+                SELECT C.CustomerIdentifier ,
+                       C.CompanyName ,
+                       Contacts.FirstName + ' ' + Contacts.LastName AS ContactName, 
+                       C.ContactTypeIdentifier ,
+                       FORMAT(C.ModifiedDate, 'MM-dd-yyyy', 'en-US') AS ModifiedDate,
+                       CT.ContactTitle
+                FROM   dbo.Customers AS C
+                INNER JOIN dbo.ContactType AS CT ON C.ContactTypeIdentifier = CT.ContactTypeIdentifier
+                INNER JOIN dbo.Contacts ON C.ContactId = Contacts.ContactId  AND CT.ContactTypeIdentifier = Contacts.ContactTypeIdentifier 
+                WHERE <%= parameterPrefix %> IN ({0})
+                ORDER BY C.CompanyName
+                </SQL>.Value
 
         ' Builds the SELECT statement minus values
         Dim CommandText = BuildWhereInClause(selectStatement, parameterPrefix, pContactTitleList)
@@ -72,3 +69,5 @@ Public Class Examples
 
     End Function
 End Class
+
+
