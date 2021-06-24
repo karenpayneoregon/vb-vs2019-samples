@@ -23,10 +23,7 @@ Public Class OperationsListView
     ''' </summary>
     Public Shared SearchText As String
 
-    Public Shared Async Function RecursiveFolders(
-          directoryInfo As DirectoryInfo,
-          ct As CancellationToken,
-          Optional fileType As String = "*.txt") As Task
+    Public Shared Async Function RecursiveFolders(directoryInfo As DirectoryInfo, ct As CancellationToken, Optional fileType As String = "*.txt") As Task
 
         If Not directoryInfo.Exists Then
             Return
@@ -44,7 +41,9 @@ Public Class OperationsListView
                         .Modified = directoryInfo.CreationTime
                     }
 
-            IterateFilesMultipleExtensions(di.Location)
+            'IterateFilesMultipleExtensions(di.Location)
+
+            IterateFiles(di.Location, "*.vb")
 
             RaiseEvent OnTraverseEvent(di)
 
@@ -104,6 +103,7 @@ Public Class OperationsListView
         Dim files = Directory.GetFiles(folderName, fileType)
 
         If files.Length > 0 Then
+
             For Each fileName As String In files
                 Dim current = fileName
 
@@ -113,7 +113,7 @@ Public Class OperationsListView
                                       Key text,
                                       Key .LineNumber = index + 1
                         }).
-                        Where(Function(anonymous) anonymous.text.Contains(SearchText)).
+                        Where(Function(anonymous) anonymous.text.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).
                         ToList()
 
                 If result.Count > 0 Then
@@ -124,6 +124,10 @@ Public Class OperationsListView
                             .FileName = current} Where Not FoundFileList.Contains(item)
 
                         FoundFileList.Add(foundFileItem)
+
+                        If Not Debugger.IsAttached Then
+                            Debug.WriteLine($"{foundFileItem.FileName}, {foundFileItem.LineNumber}")
+                        End If
 
                     Next
 
@@ -139,14 +143,15 @@ Public Class OperationsListView
             Exit Sub
         End If
 
-
         Dim dInfo = New DirectoryInfo(folderName)
         Dim files = dInfo.GetFilesByExtensions(".png", ".exe").Select(Function(item) item.Name).ToArray()
 
         If files.Length > 0 Then
+
             For Each fileName As String In files
                 FoundFileList.Add(New FoundFile() With {.FileName = fileName})
             Next
+
         End If
 
     End Sub

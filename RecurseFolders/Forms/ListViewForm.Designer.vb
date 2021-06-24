@@ -118,42 +118,42 @@ Partial Class ListViewForm
         '
         Me.FolderSelectionContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem4, Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.ToolStripMenuItem7})
         Me.FolderSelectionContextMenuStrip.Name = "ContextMenuStrip1"
-        Me.FolderSelectionContextMenuStrip.Size = New System.Drawing.Size(288, 136)
+        Me.FolderSelectionContextMenuStrip.Size = New System.Drawing.Size(402, 136)
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(401, 22)
         Me.ToolStripMenuItem4.Text = "C:\Program Files (x86)"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(287, 22)
-        Me.ToolStripMenuItem1.Text = "C:\OED\Dotnetland\VS2019\VbSolutions"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(401, 22)
+        Me.ToolStripMenuItem1.Text = "C:\OED\Dotnetland\VS2019\Misc\VbSolutions\RecurseFolders"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(401, 22)
         Me.ToolStripMenuItem2.Text = "C:\Windows\System32"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(401, 22)
         Me.ToolStripMenuItem3.Text = "Documents"
         '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(401, 22)
         Me.ToolStripMenuItem5.Text = "C:\Windows\Microsoft.NET"
         '
         'ToolStripMenuItem7
         '
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(287, 22)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(401, 22)
         Me.ToolStripMenuItem7.Text = "C:\webprojects"
         '
         'CancelButton
@@ -209,7 +209,7 @@ Partial Class ListViewForm
         Me.SearchTokenTextBox.Name = "SearchTokenTextBox"
         Me.SearchTokenTextBox.Size = New System.Drawing.Size(115, 23)
         Me.SearchTokenTextBox.TabIndex = 16
-        Me.SearchTokenTextBox.Text = "GitHub"
+        Me.SearchTokenTextBox.Text = "Directory"
         '
         'ListViewForm
         '

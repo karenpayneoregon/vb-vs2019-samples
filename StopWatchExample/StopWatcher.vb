@@ -70,6 +70,7 @@ Public NotInheritable Class StopWatcher
         Const dateFormat = "yyyy/MM/dd HH:mm:ss"
 
         If File.Exists(fileName) Then
+
             Dim contents = File.ReadAllLines(fileName).ToList()
 
             If isStart Then
